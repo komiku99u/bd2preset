@@ -23,8 +23,8 @@ export async function onRequestPost({ request, env }) {
   if (!/^[A-Za-z0-9_.-]{3,32}$/.test(username)) {
     return json({ error: "Username harus 3-32 karakter dan hanya boleh memakai huruf, angka, titik, garis bawah, atau tanda hubung." }, 400);
   }
-  if (password.length < 8) {
-    return json({ error: "Password minimal 8 karakter." }, 400);
+  if (password.length < 3) {
+    return json({ error: "Password minimal 3 karakter." }, 400);
   }
 
   const existing = await env.DB.prepare(
