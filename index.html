@@ -55,6 +55,12 @@ h1{font-size:26px;margin:0 0 5px}.subtitle{color:var(--muted);font-size:13px}
   background:#242033;
   transform:translateY(-1px);
 }
+  .creator{
+  font-size:11px;
+  color:var(--accent2);
+  margin-top:6px;
+  font-weight:bold;
+}
 </style>
 </head>
 <body>
@@ -119,7 +125,7 @@ function render(){
       const c=getChar(entry.character_id);const co=c?.costumes?.find(x=>x.id===entry.costume_id);
       chars+=`<div class="char"><img src="${escapeAttr(co?.image||c?.image||'')}" alt=""><div class="char-name">${escapeHtml(c?.name||'Unknown')}</div><div class="costume">${escapeHtml(co?.name||'No costume')}</div></div>`;
     }
-    card.innerHTML=`<div class="card-head"><div><div class="name">${escapeHtml(p.name||'Unnamed Preset')}</div><div class="desc">${escapeHtml(p.description||'No description')}</div></div><div class="badge">${team.length} / 5</div></div><div class="team">${chars}</div>`;
+    card.innerHTML=`   <div class="card-head">     <div>       <div class="name">${escapeHtml(p.name||'Unnamed Preset')}</div>       <div class="desc">${escapeHtml(p.description||'No description')}</div>       <div class="creator">by ${escapeHtml(p.created_by||'unknown')}</div>     </div>     <div class="badge">${team.length} / 5</div>   </div>   <div class="team">${chars}</div> `;
     card.onclick=()=>openDetail(p);
     $('grid').appendChild(card);
   });
