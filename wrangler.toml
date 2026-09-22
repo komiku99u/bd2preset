@@ -1,0 +1,8 @@
+name = "browndust2-preset"
+compatibility_date = "2026-09-21"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "browndust2-presets"
+database_id = "5db6d5a6-7215-4e4d-8200-7099202c5c64"
